@@ -75,6 +75,7 @@ LLM:
 Validates selection
 Converts response into structured time format
 Ensures it matches available slots
+
 🔒 Step 7: Booking Confirmation (Database Transaction)
 
 Once valid slot is selected:
@@ -84,6 +85,7 @@ System performs:
 Atomic database transaction
 Slot locking (prevents double booking)
 Appointment record creation
+
 💾 Step 8: Final Save
 
 Database updates:
@@ -91,6 +93,7 @@ Database updates:
 Appointment created
 Doctor schedule updated
 Slot marked as booked
+
 📩 Step 9: Confirmation Response
 
 AI responds:
@@ -101,6 +104,7 @@ System also sends:
 
 SMS confirmation
 Email notification
+
 📊 Step 10: Call Termination
 
 Call ends after:
@@ -108,6 +112,7 @@ Call ends after:
 Successful booking OR
 User rejection OR
 Repeated invalid responses
+
 ⚙️ System Architecture
 User Call
    ↓
@@ -122,29 +127,35 @@ Backend API (Doctor + Slot + Availability)
 Database (Appointments + Schedule)
    ↓
 Confirmation Service (Voice + SMS + Email)
+
 🧠 Key Intelligence Layers
+
 🤖 LLM Responsibilities
 Intent classification (YES / NO / IRRELEVANT)
 Date normalization (natural language → structured date)
 Slot validation
 Conversation control
+
 🧰 Backend Responsibilities
 Doctor availability checking
 Slot filtering
 Appointment creation
 Transaction-safe booking
 Conflict prevention
+
 🔒 Safety Rules
 Multiple IRRELEVANT → call termination
 NO response → immediate call end
 Invalid slot → re-prompt user
 Double booking prevention via locking
+
 🚀 Why This System is Advanced
 Real-world AI voice receptionist system
 LLM used as decision classifier + controller
 Hybrid architecture (LLM + rules + backend APIs)
 Real-time scheduling with conflict handling
 Production-level state management
+
 💡 Real-World Use Cases
 Hospitals
 Clinics
